@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            min-height: 100vh; /* يضمن أن محتوى الجسم يغطي كامل ارتفاع النافذة */
+            padding-bottom: 150px; /* المسافة المساوية لارتفاع الفوتر */
+            box-sizing: border-box;
+        }
+        .top-bar {
+            background-color: #07706d;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .top-bar img {
+            height: 80px;
+        }
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .navbar{
+            position: absolute;
+            right: 250px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 20px;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 2px 0;
+        }
+        .outer-div{
+            width: 100%;
+            height: 1150px;
+            background-color: rgb(220, 215, 223);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 5px; /* المسافة من الحافة العلوية */
+            align-items: flex-start; /* اجعل المحتوى يبدأ من الأعلى */
+            padding-bottom: 100px;
+        }
+        .inner-div{
+            width: 90%;
+            height: 800px;
+            background-color: rgb(252, 250, 250);
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-items: flex-start; /* اجعل المحتوى يبدأ من الأعلى */
+        }
+        .p{
+            background-color: rgb(253, 253, 253);
+            width: 80%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            font-size: 38px;
+            white-space: NOWRAP;
+        }   
+        .ph{
+            width: 150px;
+            height: 180px;
+            position: absolute;
+            top: 195px;
+            align-items:center;  
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            position:relative;
+            margin-top: 300px;
+        }
+        .responsive-fieldset {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            padding-top: 15px; /* مساحة إضافية للعنوان */
+            position: relative;
+            width: 500px;
+            box-sizing: border-box;
+            text-align: right;
+        }
+        .fieldset-title {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background-color: white;
+            padding: 1px;
+            font-weight: bold;
+            z-index: 3;
+            line-height: 1;
+        }
+        .space{
+            background-color: rgb(252, 250, 250);
+            width: 1000px;
+            height: 70px;
+        }
+        @media (max-height: 2200px) {
+            .outer-div{
+                height: 130%;
+            }
+        }
+        @media (max-height: 1700px) {
+            .inner-div{
+                height: 95%;
+            }
+        }
+        @media (max-width: 900px) {
+            .responsive-fieldset {
+                width: 85%;
+            }
+        }
+        @media (max-width: 800px) {
+            .navbar {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 150px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .footer img {
+            max-height: 100px;
+        }
+        .footer .one {
+            margin: 0 20px;
+            
+        }
+        .footer .two {
+            display: flex;
+            gap: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                padding: 10px;
+            }
+            .footer img {
+                margin-bottom: 10px;
+            }
+            .footer .one {
+                margin-bottom: 10px;
+            }
+            .footer .two {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <img src="icon.png" alt="Logo">
+        <div class="navbar-container">
+            <nav class="navbar">
+                <a href="https://app-balady-gov.sa-d.in/">عن بلدي </a>
+                <a href="https://app-balady-gov.sa-d.in/">مركز المعرفة</a>
+                <a href="https://app-balady-gov.sa-d.in/">الخدمات</a>
+                <a href="https://app-balady-gov.sa-d.in/">الاستعلامات</a>
+                <a href="https://app-balady-gov.sa-d.in/">المنصات</a>
+                <a href="https://app-balady-gov.sa-d.in/">تواصل معنا</a>
+            </nav>
+            <div class="hamburger" onclick="toggleNavbar()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="outer-div">
+        <div class="inner-div">
+            <div class="p"> <p style="font-weight: bold;">الشهادة الصحية السنوية</p></div>
+            <div class="ph"> <img src="photo.png" alt=""> </div>
+
+            <div class="container">
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">الامانة </legend>
+                    أمانة مكة    
+                </fieldset>
+                <!-- Add more fieldsets as needed -->
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title"> البلدية</legend>
+                    بلدية العزيزية الفرعية   
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">الاسم </legend>
+                      [جمال الدين طرف علي]   
+                </fieldset><fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">رقم الهوية </legend>
+                      2560444487 
+                </fieldset><fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">الجنس </legend>
+                    ذكر   
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">الجنسية </legend>
+                       بنجلاديش
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">رقم الشهادة الصحية </legend>
+                       441112522580
+                </fieldset><fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">المهنة </legend>
+                       بائع
+                </fieldset><fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">تاريخ إصدار الشهادة الصحية هجري </legend>
+                       1445/11/15
+                </fieldset>  <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">تاريخ إصدار الشهادة الصحية ميلادي</legend>
+                       2024/05/23
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">تاريخ نهاية الشهادة الصحية هجري </legend>
+                       1446/01/15
+                </fieldset><fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title"> تاريخ نهاية الشهادة الصحية ميلادي</legend>
+                    2024/07/21
+                </fieldset><fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">نوع البرنامج التثقيفي </legend>
+                       منشآت الغذاء
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">تاريخ انتهاء البرنامج التثقيفي </legend>
+                       1446/07/15
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">رقم الرخصة </legend>
+                       
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title"> اسم المنشآة</legend>
+                       
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">رقم المنشآة </legend>
+                       
+                </fieldset>
+                <fieldset class="responsive-fieldset">
+                    <legend class="fieldset-title">اسم الموسم </legend>
+                         
+                </fieldset>
+            </div>
+
+            <div class="space"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="footer.png" alt="Footer Image">
+        <div class="one">   <P>2023 &copy; وزارة الشؤون البلدية و القروية و الإسكان</P></div>
+        <div class="two">
+            <div> <p>اتصل بنا</p></div>
+            <div> <p>شروط الاستخدام</p></div>
+            <div> <p>خريطة الموقع</p></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            if (navbar.style.display === 'flex') {
+                navbar.style.display = 'none';
+            } else {
+                navbar.style.display = 'flex';
+                navbar.style.flexDirection = 'column';
+                navbar.style.position = 'absolute';
+                navbar.style.backgroundColor = '#ccc';
+                navbar.style.top = '100px';
+                navbar.style.right = '20px';
+                navbar.style.width = '200px';
+                navbar.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.1)';
+            }
+        }
+    </script>
+</body>
+</html>
